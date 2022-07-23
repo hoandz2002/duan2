@@ -1,0 +1,20 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title','danh sách câu hỏi'); ?>
+<?php $this->startSection('content'); ?>
+<form action="" method="POST">
+ <div>
+ <label for="">content</label>
+ <input type="text" name="name" 
+ value="<?= $model->name ?>">
+ </div>
+ <div>
+ <label for="">quiz</label>
+ <input type="text" name="quiz_id" 
+ value="<?= $model->quiz_id?>">
+ </div>
+ <div>
+ <button type="submit">Lưu</button>
+ </div>
+</form>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>

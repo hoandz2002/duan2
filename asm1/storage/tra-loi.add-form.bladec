@@ -1,0 +1,23 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title','danh sách câu hỏi'); ?>
+<?php $this->startSection('content'); ?>
+<form action="" method="post">
+ <div>
+ <label for="">content</label>
+ <input type="text" name="content">
+ </div>
+ <div>
+ <input type="text" name="question_id" hidden value="<?=$id?>">
+ </div>
+ <div>
+ <label for="">is_correct</label>
+ <input type="radio" name="is_correct" value="0" id=""> dung
+ <input type="radio" name="is_correct" value="1" id=""> sai
+ </div>
+ <div>
+ <button type="submit">Lưu</button>
+ </div>
+</form>
+<?php $this->stopSection(); ?>
+<?php $this->startSection('page-script'); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.main'); } ?>

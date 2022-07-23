@@ -1,0 +1,33 @@
+@extends('layouts.main')
+@section('title','danh sách câu hỏi')
+@section('content')
+<h5 class="card-title">Danh sách câu hỏi</h5> <br>
+<a href="<?= BASE_URL . 'question/tao-moi/' . $quiz?>" class="btn btn-success">Thêm mới</a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Câu hỏi</th>
+            <th scope="col">Nội dung</th>
+            <th colspan="3" scope="col">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php for ($i = 0; $i < count($questions); $i++) { ?>
+            <tr>
+                <th scope="row"><?= $questions[$i]->id ?></th>
+                <td>Câu hỏi: <?= $i + 1 ?></td>
+                <td><?= $questions[$i]->name ?></td>
+                <td>
+                <a href="<?= BASE_URL . 'question/cap-nhat/' . $questions[$i]->id ?>" class="btn btn-primary">Cập nhật</a>
+                <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')" href="<?= BASE_URL . 'question/xoa/' . $questions[$i]->id .'/' . $quiz ?>" class="btn btn-danger">Xóa</a>
+                <a href="<?= BASE_URL . 'answer/list-answer?question_id=' . $questions[$i]->id ?>" class="btn btn-primary">Xem đáp án</a>
+            </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+@endsection('content')
+@section('page-script')
+
+@endsection
